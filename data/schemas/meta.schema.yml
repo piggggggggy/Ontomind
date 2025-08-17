@@ -66,14 +66,14 @@ properties:
           properties:
             ns: { type: string }
             slug: { type: string }
-            version: { type: string }
+            version: { type: string } # optional
         range:
           type: object
           required: [ns, slug]
           properties:
             ns: { type: string }
             slug: { type: string }
-            version: { type: string }
+            version: { type: string } # optional
         cardinality: { type: string, enum: ["1-1","1-N","N-N"] }
         inverseOf:
           type: object

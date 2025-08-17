@@ -1,26 +1,39 @@
 {
-    "name": "ontomind-core",
-    "version": "0.1.0",
-    "description": "Ontology-based DSL parser, interpreter and prompt builder for structured LLM interaction.",
-    "type": "module",
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
-    "scripts": {
-      "dev": "tsup src/index.ts --watch",
-      "build": "tsup src/index.ts",
-      "typecheck": "tsc --noEmit",
-      "test": "vitest"
-    },
-    "keywords": ["ontology", "dsl", "llm", "prompt", "structure"],
-    "author": "",
-    "license": "MIT",
-    "dependencies": {
-      "yaml": "^2.3.5"
-    },
-    "devDependencies": {
-      "tsup": "^7.2.0",
-      "typescript": "^5.3.3",
-      "vitest": "^1.0.0"
-    }
+  "name": "ontomind-core",
+  "version": "0.1.0",
+  "description": "Ontology-based DSL parser, interpreter and prompt builder for structured LLM interaction.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "tsup src/index.ts --watch",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "test:dsl": "pnpm --filter=./packages/dsl test",
+    "lint": "pnpm -r lint",
+    "typecheck": "tsc --noEmit",
+    "oml:merge": "tsx tools/merg-oml.ts",
+    "oml:parse": "tsx tools/parse-oml.ts",
+    "oml:codegen": "tsx tools/codegen.ts",
+    "oml:validate:schema": "tsx tools/validate-schema.ts",
+    "oml:validate:instances": "tsx tools/validate-instances.ts",
+    "oml:all": "pnpm oml:merge && pnpm oml:parse && pnpm oml:codegen && pnpm oml:validate:instances"
+  },
+  "keywords": [
+    "ontology",
+    "dsl",
+    "llm",
+    "prompt",
+    "structure"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "tsup": "^7.2.0",
+    "tsx": "^4.20.4",
+    "typescript": "^5.3.3",
+    "vitest": "^1.0.0",
+    "yaml": "^2.8.1"
+  }
 }
-  
