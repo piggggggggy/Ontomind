@@ -1,0 +1,22 @@
+{
+    "name": "@ontomind/core",
+    "version": "0.1.0",
+    "type": "module",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": ["dist"],
+    "scripts": {
+      "build": "tsup src/**/*.ts --dts",
+      "test": "vitest --run"
+    },
+    "exports": {
+        "./types": "./src/types.ts",
+        "./errors": "./src/errors.ts",
+        "./id": "./src/id.ts"
+    },
+    "devDependencies": {
+        "tsup": "^7.2.0", 
+        "typescript": "^5.3.3", 
+        "vitest": "^1.0.0"
+    }
+}
