@@ -13,7 +13,8 @@
       "baseUrl": ".",
       "paths": {
         "@ontomind/core": ["packages/core/src"],
-        "@ontomind/dsl": ["packages/dsl/src"]
+        "@ontomind/dsl": ["packages/dsl/src"],
+        "@ontomind/codegen": ["packages/codegen/src"]
       },
       "types": ["node"],
       "lib": ["ES2020"]
