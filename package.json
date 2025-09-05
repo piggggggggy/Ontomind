@@ -20,7 +20,10 @@
     "oml:validate:intent": "tsx tools/validate-intent.ts",
     "oml:assemble": "tsx tools/assemble.ts intent:diagnose@1.0.0 project:Project/example-1",
     "oml:chat": "curl -s -X POST localhost:3000/api/chat -H 'Content-Type: application/json' -d '{\n  \"intentKey\": \"intent:diagnose@1.0.0\",\n  \"targetIds\": [\"project:Project/sample-1\"]\n}' | jq .",
-    "oml:all": "pnpm oml:merge && pnpm oml:parse && pnpm oml:codegen && pnpm oml:validate:instances"
+    "oml:all": "pnpm oml:merge && pnpm oml:parse && pnpm oml:codegen && pnpm oml:validate:instances",
+    "oml:chat:cli": "tsx tools/chat-call.ts intent:diagnose@1.0.0 project:Project/sample-1",
+    "oml:chat:cli:mock": "tsx tools/chat-call.ts intent:diagnose@1.0.0 project:Project/sample-1 --provider=mock",
+    "oml:chat:cli:stream": "tsx tools/chat-call.ts intent:diagnose@1.0.0 project:Project/sample-1 --stream"
   },
   "keywords": [
     "ontology",
@@ -37,6 +40,7 @@
     "tsx": "^4.20.4",
     "typescript": "^5.3.3",
     "vitest": "^1.0.0",
-    "yaml": "^2.8.1"
+    "yaml": "^2.8.1",
+    "dotenv": "^17.2.2"
   }
 }
