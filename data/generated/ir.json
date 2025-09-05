@@ -1,0 +1,494 @@
+{
+  "version": 0.1,
+  "namespaces": [
+    "core",
+    "intent"
+  ],
+  "classes": [
+    {
+      "id": {
+        "ns": "core",
+        "slug": "thing",
+        "version": "1.0.0"
+      },
+      "label": "Thing",
+      "description": "최상위 개념. 모든 클래스의 공통 조상.",
+      "properties": [
+        {
+          "id": {
+            "ns": "core",
+            "slug": "name",
+            "version": "1.0.0"
+          },
+          "label": "Name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "id": {
+            "ns": "core",
+            "slug": "description",
+            "version": "1.0.0"
+          },
+          "label": "Description",
+          "type": "markdown"
+        },
+        {
+          "id": {
+            "ns": "core",
+            "slug": "status",
+            "version": "1.0.0"
+          },
+          "label": "Status",
+          "type": {
+            "enum": [
+              "draft",
+              "active",
+              "deprecated"
+            ]
+          },
+          "default": "draft"
+        },
+        {
+          "id": {
+            "ns": "core",
+            "slug": "created-at",
+            "version": "1.0.0"
+          },
+          "label": "Created At",
+          "type": "datetime"
+        },
+        {
+          "id": {
+            "ns": "core",
+            "slug": "updated-at",
+            "version": "1.0.0"
+          },
+          "label": "Updated At",
+          "type": "datetime"
+        }
+      ],
+      "status": "active"
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "person",
+        "version": "1.0.0"
+      },
+      "label": "Person",
+      "extends": [
+        {
+          "ns": "core",
+          "slug": "thing",
+          "version": "1.0.0"
+        }
+      ],
+      "properties": [
+        {
+          "id": {
+            "ns": "core",
+            "slug": "role",
+            "version": "1.0.0"
+          },
+          "label": "Role",
+          "type": {
+            "enum": [
+              "fe",
+              "be",
+              "pm",
+              "designer",
+              "leader",
+              "other"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "organization",
+        "version": "1.0.0"
+      },
+      "label": "Organization",
+      "extends": [
+        {
+          "ns": "core",
+          "slug": "thing",
+          "version": "1.0.0"
+        }
+      ],
+      "properties": [
+        {
+          "id": {
+            "ns": "core",
+            "slug": "org-type",
+            "version": "1.0.0"
+          },
+          "label": "Org Type",
+          "type": {
+            "enum": [
+              "team",
+              "dept",
+              "company",
+              "community"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "project",
+        "version": "1.0.0"
+      },
+      "label": "Project",
+      "extends": [
+        {
+          "ns": "core",
+          "slug": "thing",
+          "version": "1.0.0"
+        }
+      ],
+      "properties": [
+        {
+          "id": {
+            "ns": "core",
+            "slug": "start-date",
+            "version": "1.0.0"
+          },
+          "label": "Start Date",
+          "type": "date"
+        },
+        {
+          "id": {
+            "ns": "core",
+            "slug": "end-date",
+            "version": "1.0.0"
+          },
+          "label": "End Date",
+          "type": "date"
+        }
+      ]
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "task",
+        "version": "1.0.0"
+      },
+      "label": "Task",
+      "extends": [
+        {
+          "ns": "core",
+          "slug": "thing",
+          "version": "1.0.0"
+        }
+      ],
+      "properties": [
+        {
+          "id": {
+            "ns": "core",
+            "slug": "due-date",
+            "version": "1.0.0"
+          },
+          "label": "Due Date",
+          "type": "date"
+        },
+        {
+          "id": {
+            "ns": "core",
+            "slug": "priority",
+            "version": "1.0.0"
+          },
+          "label": "Priority",
+          "type": {
+            "enum": [
+              "low",
+              "normal",
+              "high"
+            ]
+          },
+          "default": "normal"
+        }
+      ]
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "document",
+        "version": "1.0.0"
+      },
+      "label": "Document",
+      "extends": [
+        {
+          "ns": "core",
+          "slug": "thing",
+          "version": "1.0.0"
+        }
+      ],
+      "properties": [
+        {
+          "id": {
+            "ns": "core",
+            "slug": "url",
+            "version": "1.0.0"
+          },
+          "label": "URL",
+          "type": "url"
+        }
+      ]
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "event",
+        "version": "1.0.0"
+      },
+      "label": "Event",
+      "extends": [
+        {
+          "ns": "core",
+          "slug": "thing",
+          "version": "1.0.0"
+        }
+      ],
+      "properties": [
+        {
+          "id": {
+            "ns": "core",
+            "slug": "occurred-at",
+            "version": "1.0.0"
+          },
+          "label": "Occurred At",
+          "type": "datetime"
+        },
+        {
+          "id": {
+            "ns": "core",
+            "slug": "actors",
+            "version": "1.0.0"
+          },
+          "label": "Actors",
+          "type": "json"
+        }
+      ]
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "policy",
+        "version": "1.0.0"
+      },
+      "label": "Policy",
+      "extends": [
+        {
+          "ns": "core",
+          "slug": "document",
+          "version": "1.0.0"
+        }
+      ],
+      "properties": [
+        {
+          "id": {
+            "ns": "core",
+            "slug": "scope",
+            "version": "1.0.0"
+          },
+          "label": "Scope",
+          "type": {
+            "enum": [
+              "privacy",
+              "security",
+              "style",
+              "governance",
+              "other"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "context",
+        "version": "1.0.0"
+      },
+      "label": "Context",
+      "extends": [
+        {
+          "ns": "core",
+          "slug": "thing",
+          "version": "1.0.0"
+        }
+      ],
+      "properties": [
+        {
+          "id": {
+            "ns": "core",
+            "slug": "ctx-role",
+            "version": "1.0.0"
+          },
+          "label": "Role",
+          "type": {
+            "enum": [
+              "me",
+              "lead",
+              "coach",
+              "analyst"
+            ]
+          }
+        },
+        {
+          "id": {
+            "ns": "core",
+            "slug": "filters",
+            "version": "1.0.0"
+          },
+          "label": "Filters",
+          "type": "json"
+        }
+      ]
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "tag",
+        "version": "1.0.0"
+      },
+      "label": "Tag",
+      "extends": [
+        {
+          "ns": "core",
+          "slug": "thing",
+          "version": "1.0.0"
+        }
+      ],
+      "properties": []
+    }
+  ],
+  "relationTypes": [
+    {
+      "id": {
+        "ns": "core",
+        "slug": "part-of",
+        "version": "1.0.0"
+      },
+      "label": "part_of",
+      "domain": {
+        "ns": "core",
+        "slug": "thing"
+      },
+      "range": {
+        "ns": "core",
+        "slug": "thing"
+      },
+      "cardinality": "N-N"
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "depends-on",
+        "version": "1.0.0"
+      },
+      "label": "depends_on",
+      "domain": {
+        "ns": "core",
+        "slug": "thing"
+      },
+      "range": {
+        "ns": "core",
+        "slug": "thing"
+      },
+      "cardinality": "N-N"
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "assigned-to",
+        "version": "1.0.0"
+      },
+      "label": "assigned_to",
+      "domain": {
+        "ns": "core",
+        "slug": "task"
+      },
+      "range": {
+        "ns": "core",
+        "slug": "person"
+      },
+      "cardinality": "N-N"
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "authored-by",
+        "version": "1.0.0"
+      },
+      "label": "authored_by",
+      "domain": {
+        "ns": "core",
+        "slug": "document"
+      },
+      "range": {
+        "ns": "core",
+        "slug": "person"
+      },
+      "cardinality": "N-N"
+    },
+    {
+      "id": {
+        "ns": "core",
+        "slug": "tagged-with",
+        "version": "1.0.0"
+      },
+      "label": "tagged_with",
+      "domain": {
+        "ns": "core",
+        "slug": "thing"
+      },
+      "range": {
+        "ns": "core",
+        "slug": "tag"
+      },
+      "cardinality": "N-N"
+    }
+  ],
+  "intents": [
+    {
+      "id": {
+        "ns": "intent",
+        "slug": "summarize",
+        "version": "1.0.0"
+      },
+      "label": "Summarize",
+      "input": {
+        "scope": "json"
+      },
+      "output": {
+        "summary": "markdown",
+        "highlights": "json"
+      }
+    },
+    {
+      "id": {
+        "ns": "intent",
+        "slug": "diagnose",
+        "version": "1.0.0"
+      },
+      "label": "Diagnose",
+      "input": {
+        "target": "id:Project"
+      },
+      "output": {
+        "symptoms": "json",
+        "causes": "json",
+        "remedies": "json"
+      }
+    }
+  ],
+  "contexts": [],
+  "policies": []
+}

@@ -1,0 +1,61 @@
+{
+  "intent:summarize@1.0.0": {
+    "input": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "intent.input",
+      "type": "object",
+      "properties": {
+        "scope": {}
+      },
+      "required": [
+        "scope"
+      ]
+    },
+    "output": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "intent.output",
+      "type": "object",
+      "properties": {
+        "summary": {
+          "type": "string"
+        },
+        "highlights": {}
+      },
+      "required": [
+        "summary",
+        "highlights"
+      ]
+    }
+  },
+  "intent:diagnose@1.0.0": {
+    "input": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "intent.input",
+      "type": "object",
+      "properties": {
+        "target": {
+          "type": "string",
+          "description": "ref type: Project"
+        }
+      },
+      "required": [
+        "target"
+      ]
+    },
+    "output": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "intent.output",
+      "type": "object",
+      "properties": {
+        "symptoms": {},
+        "causes": {},
+        "remedies": {}
+      },
+      "required": [
+        "symptoms",
+        "causes",
+        "remedies"
+      ]
+    }
+  }
+}

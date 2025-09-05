@@ -17,6 +17,9 @@
     "oml:codegen": "tsx tools/codegen.ts",
     "oml:validate:schema": "tsx tools/validate-schema.ts",
     "oml:validate:instances": "tsx tools/validate-instances.ts",
+    "oml:validate:intent": "tsx tools/validate-intent.ts",
+    "oml:assemble": "tsx tools/assemble.ts intent:diagnose@1.0.0 project:Project/example-1",
+    "oml:chat": "curl -s -X POST localhost:3000/api/chat -H 'Content-Type: application/json' -d '{\n  \"intentKey\": \"intent:diagnose@1.0.0\",\n  \"targetIds\": [\"project:Project/sample-1\"]\n}' | jq .",
     "oml:all": "pnpm oml:merge && pnpm oml:parse && pnpm oml:codegen && pnpm oml:validate:instances"
   },
   "keywords": [

@@ -1,0 +1,200 @@
+{
+  "version": 0.1,
+  "namespaces": [
+    "core",
+    "intent"
+  ],
+  "classes": [
+    {
+      "id": "core:thing@1.0.0",
+      "label": "Thing",
+      "props": [
+        {
+          "key": "name",
+          "type": "string"
+        },
+        {
+          "key": "description",
+          "type": "markdown"
+        },
+        {
+          "key": "status",
+          "type": "enum(draft|active|deprecated)"
+        },
+        {
+          "key": "created-at",
+          "type": "datetime"
+        },
+        {
+          "key": "updated-at",
+          "type": "datetime"
+        }
+      ]
+    },
+    {
+      "id": "core:person@1.0.0",
+      "label": "Person",
+      "props": [
+        {
+          "key": "role",
+          "type": "enum(fe|be|pm|designer|leader|other)"
+        }
+      ]
+    },
+    {
+      "id": "core:organization@1.0.0",
+      "label": "Organization",
+      "props": [
+        {
+          "key": "org-type",
+          "type": "enum(team|dept|company|community)"
+        }
+      ]
+    },
+    {
+      "id": "core:project@1.0.0",
+      "label": "Project",
+      "props": [
+        {
+          "key": "start-date",
+          "type": "date"
+        },
+        {
+          "key": "end-date",
+          "type": "date"
+        }
+      ]
+    },
+    {
+      "id": "core:task@1.0.0",
+      "label": "Task",
+      "props": [
+        {
+          "key": "due-date",
+          "type": "date"
+        },
+        {
+          "key": "priority",
+          "type": "enum(low|normal|high)"
+        }
+      ]
+    },
+    {
+      "id": "core:document@1.0.0",
+      "label": "Document",
+      "props": [
+        {
+          "key": "url",
+          "type": "url"
+        }
+      ]
+    },
+    {
+      "id": "core:event@1.0.0",
+      "label": "Event",
+      "props": [
+        {
+          "key": "occurred-at",
+          "type": "datetime"
+        },
+        {
+          "key": "actors",
+          "type": "json"
+        }
+      ]
+    },
+    {
+      "id": "core:policy@1.0.0",
+      "label": "Policy",
+      "props": [
+        {
+          "key": "scope",
+          "type": "enum(privacy|security|style|governance|other)"
+        }
+      ]
+    },
+    {
+      "id": "core:context@1.0.0",
+      "label": "Context",
+      "props": [
+        {
+          "key": "ctx-role",
+          "type": "enum(me|lead|coach|analyst)"
+        },
+        {
+          "key": "filters",
+          "type": "json"
+        }
+      ]
+    },
+    {
+      "id": "core:tag@1.0.0",
+      "label": "Tag",
+      "props": []
+    }
+  ],
+  "relations": [
+    {
+      "id": "core:part-of@1.0.0",
+      "label": "part_of",
+      "domain": "core:thing",
+      "range": "core:thing",
+      "card": "N-N"
+    },
+    {
+      "id": "core:depends-on@1.0.0",
+      "label": "depends_on",
+      "domain": "core:thing",
+      "range": "core:thing",
+      "card": "N-N"
+    },
+    {
+      "id": "core:assigned-to@1.0.0",
+      "label": "assigned_to",
+      "domain": "core:task",
+      "range": "core:person",
+      "card": "N-N"
+    },
+    {
+      "id": "core:authored-by@1.0.0",
+      "label": "authored_by",
+      "domain": "core:document",
+      "range": "core:person",
+      "card": "N-N"
+    },
+    {
+      "id": "core:tagged-with@1.0.0",
+      "label": "tagged_with",
+      "domain": "core:thing",
+      "range": "core:tag",
+      "card": "N-N"
+    }
+  ],
+  "intents": [
+    {
+      "id": "intent:summarize@1.0.0",
+      "label": "Summarize",
+      "input": {
+        "scope": "json"
+      },
+      "output": {
+        "summary": "markdown",
+        "highlights": "json"
+      }
+    },
+    {
+      "id": "intent:diagnose@1.0.0",
+      "label": "Diagnose",
+      "input": {
+        "target": "id:Project"
+      },
+      "output": {
+        "symptoms": "json",
+        "causes": "json",
+        "remedies": "json"
+      }
+    }
+  ],
+  "policies": [],
+  "contexts": []
+}

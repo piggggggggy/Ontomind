@@ -13,6 +13,7 @@ const ir = parseOML();
 
 // 2) JSON Schema 묶음
 const js = buildJSONSchemas(ir);
+console.log('[OntoMind] js', js);
 fs.writeFileSync(path.join(outDir, 'classes.schema.json'), JSON.stringify(js.classes, null, 2));
 fs.writeFileSync(path.join(outDir, 'relations.schema.json'), JSON.stringify(js.relations, null, 2));
 fs.writeFileSync(path.join(outDir, 'intents.schema.json'), JSON.stringify(js.intents, null, 2));

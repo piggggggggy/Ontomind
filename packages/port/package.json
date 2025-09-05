@@ -1,0 +1,21 @@
+{
+    "name": "@ontomind/port",
+    "version": "0.1.0",
+    "type": "module",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": ["dist"],
+    "scripts": {
+      "build": "tsup src/**/*.ts --dts",
+      "test": "vitest --run"
+    },
+    "dependencies": {
+      "@ontomind/prompt": "workspace:*",
+      "@ontomind/validator": "workspace:*"
+    },
+    "devDependencies": {
+      "tsup": "^7.2.0",
+      "typescript": "^5.3.3",
+      "vitest": "^1.0.0"
+    }
+  }

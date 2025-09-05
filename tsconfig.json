@@ -14,7 +14,10 @@
       "paths": {
         "@ontomind/core": ["packages/core/src"],
         "@ontomind/dsl": ["packages/dsl/src"],
-        "@ontomind/codegen": ["packages/codegen/src"]
+        "@ontomind/codegen": ["packages/codegen/src"],
+        "@ontomind/validator": ["packages/validator/src"],
+        "@ontomind/prompt": ["packages/prompt/src"],
+        "@ontomind/port": ["packages/port/src"]
       },
       "types": ["node"],
       "lib": ["ES2020"]

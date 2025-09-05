@@ -1,0 +1,215 @@
+{
+  "core:thing@1.0.0": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "#/classes/core:thing@1.0.0",
+    "title": "Thing",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "name": {
+        "type": "string",
+        "description": "Name"
+      },
+      "description": {
+        "type": "string",
+        "description": "Description"
+      },
+      "status": {
+        "type": "string",
+        "enum": [
+          "draft",
+          "active",
+          "deprecated"
+        ],
+        "description": "Status",
+        "default": "draft"
+      },
+      "created-at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Created At"
+      },
+      "updated-at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Updated At"
+      }
+    },
+    "required": [
+      "name"
+    ]
+  },
+  "core:person@1.0.0": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "#/classes/core:person@1.0.0",
+    "title": "Person",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "role": {
+        "type": "string",
+        "enum": [
+          "fe",
+          "be",
+          "pm",
+          "designer",
+          "leader",
+          "other"
+        ],
+        "description": "Role"
+      }
+    },
+    "required": []
+  },
+  "core:organization@1.0.0": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "#/classes/core:organization@1.0.0",
+    "title": "Organization",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "org-type": {
+        "type": "string",
+        "enum": [
+          "team",
+          "dept",
+          "company",
+          "community"
+        ],
+        "description": "Org Type"
+      }
+    },
+    "required": []
+  },
+  "core:project@1.0.0": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "#/classes/core:project@1.0.0",
+    "title": "Project",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "start-date": {
+        "type": "string",
+        "format": "date",
+        "description": "Start Date"
+      },
+      "end-date": {
+        "type": "string",
+        "format": "date",
+        "description": "End Date"
+      }
+    },
+    "required": []
+  },
+  "core:task@1.0.0": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "#/classes/core:task@1.0.0",
+    "title": "Task",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "due-date": {
+        "type": "string",
+        "format": "date",
+        "description": "Due Date"
+      },
+      "priority": {
+        "type": "string",
+        "enum": [
+          "low",
+          "normal",
+          "high"
+        ],
+        "description": "Priority",
+        "default": "normal"
+      }
+    },
+    "required": []
+  },
+  "core:document@1.0.0": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "#/classes/core:document@1.0.0",
+    "title": "Document",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "url": {
+        "type": "string",
+        "format": "uri",
+        "description": "URL"
+      }
+    },
+    "required": []
+  },
+  "core:event@1.0.0": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "#/classes/core:event@1.0.0",
+    "title": "Event",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "occurred-at": {
+        "type": "string",
+        "format": "date-time",
+        "description": "Occurred At"
+      },
+      "actors": {
+        "description": "Actors"
+      }
+    },
+    "required": []
+  },
+  "core:policy@1.0.0": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "#/classes/core:policy@1.0.0",
+    "title": "Policy",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "scope": {
+        "type": "string",
+        "enum": [
+          "privacy",
+          "security",
+          "style",
+          "governance",
+          "other"
+        ],
+        "description": "Scope"
+      }
+    },
+    "required": []
+  },
+  "core:context@1.0.0": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "#/classes/core:context@1.0.0",
+    "title": "Context",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {
+      "ctx-role": {
+        "type": "string",
+        "enum": [
+          "me",
+          "lead",
+          "coach",
+          "analyst"
+        ],
+        "description": "Role"
+      },
+      "filters": {
+        "description": "Filters"
+      }
+    },
+    "required": []
+  },
+  "core:tag@1.0.0": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "#/classes/core:tag@1.0.0",
+    "title": "Tag",
+    "type": "object",
+    "additionalProperties": true,
+    "properties": {},
+    "required": []
+  }
+}

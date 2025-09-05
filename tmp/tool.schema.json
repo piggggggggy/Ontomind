@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "intent.output",
+  "type": "object",
+  "properties": {
+    "symptoms": {},
+    "causes": {},
+    "remedies": {}
+  },
+  "required": [
+    "symptoms",
+    "causes",
+    "remedies"
+  ]
+}

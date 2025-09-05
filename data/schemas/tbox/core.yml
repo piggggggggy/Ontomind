@@ -80,21 +80,31 @@ relationTypes:
     range: { ns: core, slug: thing }
     cardinality: "N-N"
 
-  - id: { ns: core, slug: assigned-to,version: "1.0.0" }
+  - id: { ns: core, slug: assigned-to, version: "1.0.0" }
     label: assigned_to
     domain: { ns: core, slug: task }
     range: { ns: core, slug: person }
     cardinality: "N-N"
 
-  - id: { ns: core, slug: authored-by,version: "1.0.0" }
+  - id: { ns: core, slug: authored-by, version: "1.0.0" }
     label: authored_by
     domain: { ns: core, slug: document }
     range: { ns: core, slug: person }
     cardinality: "N-N"
 
-  - id: { ns: core, slug: tagged-with,version: "1.0.0" }
+  - id: { ns: core, slug: tagged-with, version: "1.0.0" }
     label: tagged_with
     domain: { ns: core, slug: thing }
     range: { ns: core, slug: tag }
     cardinality: "N-N"
-  
+
+intents:
+  - id: { ns: intent, slug: summarize, version: "1.0.0" }
+    label: Summarize
+    input:  { scope: "json" }
+    output: { summary: "markdown", highlights: "json" }
+
+  - id: { ns: intent, slug: diagnose, version: "1.0.0" }
+    label: Diagnose
+    input:  { target: "id:Project" }
+    output: { symptoms: "json", causes: "json", remedies: "json" }
